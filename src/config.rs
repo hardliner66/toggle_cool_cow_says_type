@@ -43,26 +43,22 @@ impl Config {
                 }
                 "-cf" => {
                     let front_color = args.next().unwrap_or("green".to_string());
-                    if let Ok(c) = front_color.parse::<u8>() {
-                        foreground_color = Some(Color::AnsiValue(c));
-                    } else {
-                        if let Ok(c) = front_color.parse::<Color>() {
-                            foreground_color = Some(c);
-                        } else {
-                            return Err(Error::InvalidColor);
-                        }
+                    match front_color.parse::<u8>() {
+                        Ok(c) => foreground_color = Some(Color::AnsiValue(c)),
+                        _ => match front_color.parse::<Color>() {
+                                Ok(c) => foreground_color = Some(c),
+                                _ => return Err(Error::InvalidColor),
+                            } 
                     }
                 }
                 "-cb" => {
                     let back_color = args.next().unwrap_or("dark_grey".to_string());
-                    if let Ok(c) = back_color.parse::<u8>() {
-                        background_color = Some(Color::AnsiValue(c));
-                    } else {
-                        if let Ok(c) = back_color.parse::<Color>() {
-                            background_color = Some(c);
-                        } else {
-                            return Err(Error::InvalidColor);
-                        }
+                    match back_color.parse::<u8>() {
+                        Ok(c) => background_color = Some(Color::AnsiValue(c)),
+                        _ => match back_color.parse::<Color>() {
+                                Ok(c) => background_color = Some(c),
+                                _ => return Err(Error::InvalidColor),
+                            } 
                     }
                 }
                 _ => {}
