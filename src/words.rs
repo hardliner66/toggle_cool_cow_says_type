@@ -3,6 +3,7 @@ use std::path::PathBuf;
 
 use rand::prelude::*;
 use walkdir::WalkDir;
+use log::warn;
 
 use crate::config::Config;
 use crate::error::{Error, Result};
@@ -13,7 +14,10 @@ fn find_files(path: PathBuf, required_ext: &str) -> Vec<PathBuf> {
     for entry in WalkDir::new(path) {
         let entry = match entry {
             Ok(e) => e,
-            Err(_) => continue,
+            Err(e) => {
+                warn!("Walkdir: {}", e);
+                continue;
+            },
         };
 
         if !entry.file_type().is_file() {

@@ -141,7 +141,7 @@ fn render(
 fn play() -> error::Result<()> {
     let config = Config::from_args(args())?;
     let (w, h) = term_size().expect("could not get terminal size");
-    let selected_words = words(&config, (w * h) as usize)?;
+    let selected_words = words(dbg!(&config), (w * h) as usize)?;
 
     let mut game = Game::new(selected_words, config.strict);
 

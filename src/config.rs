@@ -4,6 +4,7 @@ use std::path::PathBuf;
 use crate::error::{Error, Result};
 use tinybit::Color;
 
+#[derive(Debug, Clone)]
 pub struct Config {
     pub project_path: PathBuf,
     pub file_extension: String,

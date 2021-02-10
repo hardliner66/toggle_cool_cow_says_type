@@ -1,0 +1,17 @@
+   Compiling log v0.4.14
+   Compiling mio v0.7.7
+   Compiling fern v0.6.0
+   Compiling signal-hook v0.1.17
+   Compiling crossterm v0.18.2
+   Compiling tinybit v0.1.0 (https://github.com/togglebyte/tinybit#ee98b4ce)
+   Compiling toggle_cool_cow_says_type v0.1.1 (/home/steve/projects/rust/toggle_cool_cow_says_type)
+    Finished dev [unoptimized + debuginfo] target(s) in 4.92s
+     Running `target/debug/toggle_cool_cow_says_type .`
+[src/main.rs:144] &config = Config {
+    project_path: ".",
+    file_extension: "rs",
+    word_count: 10,
+    strict: false,
+    cursor_foreground_color: Green,
+    cursor_background_color: DarkGrey,
+}

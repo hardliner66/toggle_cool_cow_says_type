@@ -11,3 +11,5 @@ rand = "0.8.3"
 tinybit = { git = "https://github.com/togglebyte/tinybit" }
 walkdir = "2.3.1"
 shellexpand = "2.1.0"
+log = "0.4.14"
+fern = "0.6.0"
